@@ -3,14 +3,21 @@ function sortear () {
     let de = parseInt(document.getElementById("de").value);
     let ate = parseInt(document.getElementById("ate").value);
     
-   let Sorteados = [];
-   let numero; 
+    let Sorteados = [];
+    let numero; 
 
     for (let i = 0; i < quantidade; i++) {
-        let numero = obterNumeroAleatorio(de, ate);
+    let numero = obterNumeroAleatorio(de, ate);
 
         while (Sorteados.includes(numero)) {
             numero = obterNumeroAleatorio(de, ate);
+            alert("Tentando obter número inédito");
+            
+    if (quantidade > (ate - de + 1)) {
+    alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+    return;
+  }
+
         }
         Sorteados.push(numero);
     }
